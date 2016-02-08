@@ -42,10 +42,14 @@ function mdSelectSingle($compile) {
 
     self.select = function () {
       if(self.disabled) {
+        console.log("selection is disabled!");
         return;
       }
 
-      tableCtrl.selected = [];
+      for(var i=0; i<tableCtrl.selected.length; i++){
+        self.deselect(tableCtrl.selected[i]);
+      }
+
       tableCtrl.selected.push(self.model);
 
       if(angular.isFunction(self.onSelect)) {
@@ -58,8 +62,7 @@ function mdSelectSingle($compile) {
         return;
       }
 
-      tableCtrl.selected = [];
-      //tableCtrl.selected.splice(tableCtrl.selected.indexOf(self.model), 1);
+      tableCtrl.selected.splice(tableCtrl.selected.indexOf(self.model), 1);
 
       if(angular.isFunction(self.onDeselect)) {
         self.onDeselect(self.model);
