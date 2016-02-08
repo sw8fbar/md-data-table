@@ -1210,13 +1210,13 @@ function mdSelectSingle($compile) {
   return {
     bindToController: true,
     controller: Controller,
-    controllerAs: '$mdSelect',
+    controllerAs: '$mdSelectSingle',
     link: postLink,
-    require: ['mdSelect', '^^mdTable'],
+    require: ['mdSelectSingle', '^^mdTable'],
     restrict: 'A',
     scope: {
       id: '@mdSelectId',
-      model: '=mdSelect',
+      model: '=mdSelectSingle',
       disabled: '=ngDisabled',
       onSelect: '=?mdOnSelect',
       onDeselect: '=?mdOnDeselect',
