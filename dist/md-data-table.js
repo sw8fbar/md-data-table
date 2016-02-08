@@ -888,6 +888,7 @@ function mdSelect($compile) {
         return;
       }
 
+      console.log('self.singleSelect ', self.singleSelect);
       if(self.singleSelect){
         tableCtrl.selected = [];
       }
