@@ -889,9 +889,7 @@ function mdSelect($compile) {
       }
 
       if(self.singleSelect){
-        for(var i=0; i<tableCtrl.selected.length; i++){
-          self.deselect(tableCtrl.selected[i]);
-        }
+        tableCtrl.selected = [];
       }
       tableCtrl.selected.push(self.model);
 
