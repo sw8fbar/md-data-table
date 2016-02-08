@@ -1124,9 +1124,9 @@ function mdSelectSingle($compile) {
       var checkbox = angular.element('<md-checkbox>');
 
       checkbox.attr('aria-label', 'Select Row');
-      checkbox.attr('ng-click', '$mdSelect.toggle($event)');
-      checkbox.attr('ng-checked', '$mdSelect.isSelected()');
-      checkbox.attr('ng-disabled', '$mdSelect.disabled');
+      checkbox.attr('ng-click', '$mdSelectSingle.toggle($event)');
+      checkbox.attr('ng-checked', '$mdSelectSingle.isSelected()');
+      checkbox.attr('ng-disabled', '$mdSelectSingle.disabled');
 
       return angular.element('<td class="md-cell md-checkbox-cell">').append($compile(checkbox)(scope));
     }
