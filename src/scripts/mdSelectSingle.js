@@ -30,6 +30,7 @@ function mdSelectSingle($compile) {
 
     self.isSelected = function () {
       if(!tableCtrl.$$rowSelect) {
+        console.log("In isSelected !tableCtrl.$$rowSelect = ", !tableCtrl.$$rowSelect);
         return false;
       }
 
@@ -41,6 +42,7 @@ function mdSelectSingle($compile) {
     };
 
     self.select = function () {
+      console.log("selecting!");
       if(self.disabled) {
         console.log("selection is disabled!");
         return;
@@ -58,6 +60,7 @@ function mdSelectSingle($compile) {
     };
 
     self.deselect = function () {
+      console.log("deselecting!");
       if(self.disabled) {
         return;
       }
@@ -97,6 +100,7 @@ function mdSelectSingle($compile) {
     }
 
     function disableSelection() {
+      console.log("Disabling selection!");
       Array.prototype.some.call(element.children(), function (child) {
         return child.classList.contains('md-checkbox-cell') && element[0].removeChild(child);
       });
@@ -107,7 +111,9 @@ function mdSelectSingle($compile) {
     }
 
     function enableSelection() {
+      console.log("Prepending checkbox!");
       element.prepend(createCheckbox());
+      console.log("Prepended checkbox!");
 
       if(autoSelect()) {
         element.on('click', toggle);
@@ -157,6 +163,7 @@ function mdSelectSingle($compile) {
         return;
       }
 
+      console.log("tableCtrl.$$rowSelect ",tableCtrl.$$rowSelect, "newValue ",newValue);
       if(tableCtrl.$$rowSelect && newValue) {
         element.on('click', toggle);
       } else {
@@ -193,4 +200,4 @@ function mdSelectSingle($compile) {
   };
 }
 
-mdSelect.$inject = ['$compile'];
+mdSelectSingle.$inject = ['$compile'];
